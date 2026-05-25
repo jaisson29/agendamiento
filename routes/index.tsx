@@ -4,7 +4,7 @@ import Counter from "../islands/Counter.tsx";
 export default function Home() {
   const count = useSignal(3);
   return (
-    <div className="px-4 py-8 mx-auto bg-[#86efac]">
+    <div className="px-4 py-8 mx-auto bg-[#86efac] h-dvh">
       <div className="max-w-screen-md mx-auto flex flex-col items-center justify-center">
         <img
           className="my-6"

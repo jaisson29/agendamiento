@@ -1,4 +1,6 @@
 {
+  "name": "@linxforge/agendamiento",
+  "version": "0.2.0",
   "nodeModulesDir": "manual",
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check",
@@ -20,6 +22,12 @@
   "exclude": [
     "**/_fresh/*"
   ],
+  "exports": {
+    ".": "./main.ts",
+    "./dev": "./dev.ts",
+    "./routes": "./routes",
+    "types": "./types.d.ts"
+  },
   "imports": {
     "@/": "./",
     "fresh": "jsr:@fresh/core@^2.3.3",
