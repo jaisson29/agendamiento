@@ -9,6 +9,9 @@ COPY . .
 # Cache the application code
 RUN deno cache main.ts
 
+# build the application
+RUN deno task build
+
 # Set production environment
 ENV DENO_ENV=production
 
