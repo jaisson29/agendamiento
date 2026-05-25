@@ -139,7 +139,7 @@ export default function WhatsAppPanel() {
 
             // Opcional: Solicitar lista actualizada de contactos
             ws.send(JSON.stringify({
-              type: "get_contacts"
+              type: "get_contacts",
             }));
             break;
 

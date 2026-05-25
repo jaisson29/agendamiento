@@ -1,7 +1,7 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
-  async GET(_req, ctx) {
+  async GET(ctx) {
     const { name } = ctx.params;
     const response = await fetch(`https://api.example.com/${name}`);
     if (!response.ok) {
@@ -13,7 +13,8 @@ export const handler: Handlers = {
     });
   },
 
-  async POST(req, ctx) {
+  async POST(ctx) {
+    const req = ctx.req;
     const { name } = ctx.params;
     const body = await req.json();
     const response = await fetch(`https://api.example.com/${name}`, {
@@ -30,7 +31,8 @@ export const handler: Handlers = {
     });
   },
 
-  async PUT(req, ctx) {
+  async PUT(ctx) {
+    const req = ctx.req;
     const { name } = ctx.params;
     const body = await req.json();
     const response = await fetch(`https://api.example.com/${name}`, {
@@ -47,7 +49,7 @@ export const handler: Handlers = {
     });
   },
 
-  async DELETE(_req, ctx) {
+  async DELETE(ctx) {
     const { name } = ctx.params;
     const response = await fetch(`https://api.example.com/${name}`, {
       method: "DELETE",

@@ -1,4 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers } from "fresh/compat";
 
 // Interfaz para los mensajes de WhatsApp Business
 interface WhatsAppMessage {
@@ -214,7 +214,9 @@ export class WhatsAppWSManager {
 const whatsAppManager = WhatsAppWSManager.getInstance();
 
 export const handler: Handlers = {
-  GET(req) {
+  GET(ctx) {
+    const req = ctx.req;
+
     if (req.headers.get("upgrade") != "websocket") {
       return new Response(null, { status: 501 });
     }

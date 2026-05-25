@@ -47,7 +47,9 @@ const buildImage = async (): Promise<void> => {
 const runContainer = async (): Promise<void> => {
   const { name, version } = await readConfig();
   const imageTag = `${name}:${version}`;
-  await runCommand(`docker run --name ${name+version} -p 8000:8000 ${imageTag}`);
+  await runCommand(
+    `docker run --name ${name + version} -p 8000:8000 ${imageTag}`,
+  );
 };
 
 // Procesar argumentos de línea de comandos
