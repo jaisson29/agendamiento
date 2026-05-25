@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # construct the app
-RUN deno install && deno cache main.ts && deno task build
+RUN deno install --allow-scripts && deno task build
 
 # Set production environment
 ENV DENO_ENV=production
@@ -16,4 +16,4 @@ ENV DENO_ENV=production
 EXPOSE 8000
 
 # Run the application with necessary permissions
-CMD ["deno", "run", "--allow-net", "--allow-read", "--allow-env", "main.ts"]
+CMD ["deno", "serve", "-A", "_fresh/server.js"]
